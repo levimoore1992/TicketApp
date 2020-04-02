@@ -6,7 +6,7 @@ class Event(models.Model):
     event_date = models.DateField()
     description = models.TextField()
     latitude = models.FloatField()
-    longituge = models.FloatField()
+    longitude = models.FloatField()
 
     def __str__(self):
         return self.name
