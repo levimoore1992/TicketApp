@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <div>
+    <a [routerLink]="'login'">Login</a>
+    <a [routerLink]="'signup'">Sign Up</a>
+    </div>
+
+    <a [routerLink]="''"> Ticket Website</a>
+    <a [routerLink]="'logout'">Logout</a>
+            <kendo-autocomplete
+            [data]="data"
+            [filterable]="true"
+            (filterChange)="handleFilter($event)"
+            [placeholder]="'e.g. Andorra'"
+        >
+        </kendo-autocomplete>
+  </mat-toolbar-row>
+
+</mat-toolbar>
