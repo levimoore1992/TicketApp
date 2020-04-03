@@ -14,6 +14,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import {HttpClientModule} from "@angular/common/http";
+import { CardsComponent } from './cards/cards.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import {HttpClientModule} from "@angular/common/http";
     NavbarComponent,
     SignupComponent,
     LoginComponent,
-    CarouselComponent
+    CarouselComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatToolbarModule,
     NgbModule,
     DropDownsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

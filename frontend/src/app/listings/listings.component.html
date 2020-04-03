@@ -1,1 +1,9 @@
-<p>listings works!</p>
+<div class="main">
+  <div class="listings">
+  <div *ngFor=" let card of cards">
+    <app-cards  [title]="card.festival" [price]="card.price" [image]="card.image"></app-cards>
+  </div>
+</div>
+</div>
+
+
