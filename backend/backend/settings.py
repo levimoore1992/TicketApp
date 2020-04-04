@@ -40,8 +40,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'listings',
     'events',
-    'corsheaders'
+    'corsheaders',
+    'knox',
+    'rest_framework.authtoken'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
