@@ -1,12 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <div>
-    <a [routerLink]="'login'">Login</a>
-    <a [routerLink]="'signup'">Sign Up</a>
-    </div>
 
-    <a [routerLink]="''"> Ticket Website</a>
-    <a [routerLink]="'logout'">Logout</a>
+
+    <div class="nav-links">
+    <a *ngIf="!isAuthenticated" [routerLink]="'login'">Login</a>
+    <a *ngIf="isAuthenticated" [routerLink]="'logout'">Logout</a>
+
+    </div>
+        <a [routerLink]="''"> Ticket Website</a>
+
             <kendo-autocomplete
             [data]="data"
             [filterable]="true"

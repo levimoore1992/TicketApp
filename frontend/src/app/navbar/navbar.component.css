@@ -6,3 +6,8 @@ mat-toolbar-row{
 a{
   color: aliceblue;
 }
+
+.nav-links{
+  display: flex;
+  align-content: space-between;
+}

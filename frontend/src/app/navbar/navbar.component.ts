@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NavbarService} from './navbar.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,9 +10,9 @@ import {NavbarService} from './navbar.service';
 export class NavbarComponent implements OnInit {
   public source: Array<string>;
   public data;
-  constructor(private navService: NavbarService) {
+  isAuthenticated = false;
+  constructor(private navService: NavbarService, private authService: AuthService) {
       this.navService.getEvents().subscribe(res => {
-        console.log(res);
       // @ts-ignore
         this.source = res.map(item => item.name);
         this.data = this.source.slice();
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+  this.isAuthenticated = this.authService.isAuthenticated.value;
   }
 
   handleFilter(value: string) {
