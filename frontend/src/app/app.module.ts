@@ -13,13 +13,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CardsComponent } from './cards/cards.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatButtonModule} from "@angular/material/button";
-import {ReactiveFormsModule} from "@angular/forms";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {TokenInterceptor} from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,11 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

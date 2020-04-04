@@ -35,10 +35,8 @@ export class LoginComponent implements OnInit {
     password: this.form.get('password').value
   };
   this.authService.loginUser(body).subscribe(res => {
-    console.log(res);
-          // @ts-ignore
-    this.authService.authToken.next(res.token);
-    this.authService.isAuthenticatedSubject.next(true);
+    // @ts-ignore
+    localStorage.setItem('token', res.token);
     this.router.navigate(['/']);
   });
   }

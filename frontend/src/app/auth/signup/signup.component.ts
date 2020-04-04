@@ -38,12 +38,8 @@ form: FormGroup;
   };
 
   this.authService.registerUser(body).subscribe(res => {
-    console.log(res);
-      // @ts-ignore
-    this.authService.authToken.next(res.token);
-    this.authService.isAuthenticated.pipe(
-      tap()
-    )
+    // @ts-ignore
+    localStorage.setItem('token', res.token);
     this.router.navigate(['/']);
     });
   }

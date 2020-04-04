@@ -5,7 +5,7 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {LoginComponent} from './auth/login/login.component';
 import {ListingsComponent} from './listings/listings.component';
 import {EventsComponent} from './events/events.component';
-import {AuthGuardService} from "./auth/auth-guard.service";
+import {AuthGuardService} from './auth/auth-guard.service';
 
 
 const routes: Routes = [
