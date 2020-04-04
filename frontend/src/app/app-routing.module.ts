@@ -14,6 +14,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'listings', component: ListingsComponent, canActivate: [AuthGuardService]},
   {path: 'events', component: EventsComponent, canActivate: [AuthGuardService]},
+  {path: '**', redirectTo: ''}
 
 ];
 
