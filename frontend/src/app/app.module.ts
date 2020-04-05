@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {TokenInterceptor} from './auth/auth.interceptor';
 import { MenuModule } from '@progress/kendo-angular-menu';
 import {MatMenuModule} from "@angular/material/menu";
+import { StripePaymentComponent } from './stripe-payment/stripe-payment.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import {MatMenuModule} from "@angular/material/menu";
     SignupComponent,
     LoginComponent,
     CarouselComponent,
-    CardsComponent
+    CardsComponent,
+    StripePaymentComponent
   ],
   imports: [
     BrowserModule,

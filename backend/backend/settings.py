@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'events',
     'corsheaders',
     'knox',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
+    'payments'
 ]
 
 REST_FRAMEWORK = {
