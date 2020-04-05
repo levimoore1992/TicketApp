@@ -26,7 +26,8 @@ export class AuthService {
   }
 
   logout(body) {
-          this.http.post('http://127.0.0.1:80/api/auth/logout', body);
+      localStorage.clear();
+      this.http.post('http://127.0.0.1:80/api/auth/logout', body);
   }
 
   getToken() {
