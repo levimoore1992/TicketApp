@@ -22,8 +22,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {TokenInterceptor} from './auth/auth.interceptor';
 import { MenuModule } from '@progress/kendo-angular-menu';
-import {MatMenuModule} from "@angular/material/menu";
-import { StripePaymentComponent } from './stripe-payment/stripe-payment.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -37,7 +36,7 @@ import { StripePaymentComponent } from './stripe-payment/stripe-payment.componen
     LoginComponent,
     CarouselComponent,
     CardsComponent,
-    StripePaymentComponent
+
   ],
   imports: [
     BrowserModule,

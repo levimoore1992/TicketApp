@@ -3,22 +3,25 @@ from rest_framework.views import APIView
 import json
 from django.http import JsonResponse
 import stripe
-
+from .serializers import PaymentSerializer
 
 # Create your views here.
 
 class StripeView(APIView):
 
     def post(self, request):
-        # data = json.loads(request.data)
+        serializer = PaymentSerializer(data=request.data)
+        result = serializer.is_valid(raise_exception=True)
+        data = serializer.data
+        print(data)
         stripe.api_key = 'sk_test_clyABYueO769i923TFtYhuQJ00JaoyM53N'
         session = stripe.checkout.Session.create(
             payment_method_types=['card'],
             line_items=[{
-                'name': 'T-shirt',
-                'description': 'Comfortable cotton t-shirt',
-                'images': ['https://example.com/t-shirt.png'],
-                'amount': 500,
+                'name': data['festival'],
+                'description': data['festival'],
+                'images': ['https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'],
+                'amount': data['price'],
                 'currency': 'usd',
                 'quantity': 1,
             }],
