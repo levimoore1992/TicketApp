@@ -21,13 +21,12 @@ export class AuthService {
     return this.http.post('http://127.0.0.1:80/api/auth/register', body);
   }
   isAuthenticated() {
-
-      return this.http.get('http://127.0.0.1:80/api/auth/user');
+    return localStorage.getItem('token') !== null;
   }
 
-  logout(body) {
+  logout() {
       localStorage.clear();
-      this.http.post('http://127.0.0.1:80/api/auth/logout', body);
+      // this.http.post('http://127.0.0.1:80/api/auth/logout', null);
   }
 
   getToken() {

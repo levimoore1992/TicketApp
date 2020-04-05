@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {NavbarService} from './navbar.service';
 import {AuthService} from '../auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnChanges {
   public source: Array<string>;
   public data;
-  isAuthenticated = false;
-  private user: any;
+  isAuthenticated;
 
-  constructor(private navService: NavbarService, private authService: AuthService) {
+  constructor(private navService: NavbarService, private authService: AuthService, private router: Router) {
       this.navService.getEvents().subscribe(res => {
       // @ts-ignore
         this.source = res.map(item => item.name);
@@ -23,10 +23,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.authService.isAuthenticated().subscribe(res => {
-     // @ts-ignore
-     this.user = res.user;
-   });
+      this.isAuthenticated = this.authService.isAuthenticated();
+      console.log(this.isAuthenticated);
+
+  }
+  ngOnChanges() {
   }
 
   handleFilter(value: string) {
@@ -34,6 +35,21 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout(this.user);
+    this.authService.logout();
+  }
+
+public onSelect({ item }): void {
+  if (!item.items) {
+      this.router.navigate([ item.path ]);
+  }
+}
+
+  goToEvents() {
+    this.router.navigate(['events']);
+  }
+
+  goToListings() {
+        this.router.navigate(['listings']);
+
   }
 }

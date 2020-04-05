@@ -4,8 +4,17 @@
 
     <div class="nav-links">
     <a *ngIf="!isAuthenticated" [routerLink]="'login'">Login</a>
-    <a *ngIf="isAuthenticated" (click)="logout()">Logout</a>
+          <kendo-menu *ngIf="isAuthenticated">
+               <kendo-menu-item text="More">
+                   <kendo-menu-item text="Events" (click)="goToEvents()">
+                   </kendo-menu-item>
+                   <kendo-menu-item text="Listings" (click)="goToListings()">
+                   </kendo-menu-item>
+                <kendo-menu-item text="Logout" (click)="logout()">
+               </kendo-menu-item>
+               </kendo-menu-item>
 
+          </kendo-menu>
     </div>
         <a [routerLink]="''"> Ticket Website</a>
 

@@ -21,6 +21,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {TokenInterceptor} from './auth/auth.interceptor';
+import { MenuModule } from '@progress/kendo-angular-menu';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import {TokenInterceptor} from './auth/auth.interceptor';
     MatButtonModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MenuModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
