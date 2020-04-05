@@ -12,8 +12,6 @@ export class CardsComponent implements OnInit {
 
   stripe;
 
-
-
   constructor(private http: HttpClient) {
 
   }
