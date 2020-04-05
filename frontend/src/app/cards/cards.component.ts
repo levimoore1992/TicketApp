@@ -6,9 +6,8 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-  @Input() title: string;
-  @Input() price: number;
-  @Input() image: string;
+  @Input() payload: {title: string, price: number, image: string, seller: string};
+
 
 
 
@@ -17,4 +16,7 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  purchase(seller: string) {
+    
+  }
 }

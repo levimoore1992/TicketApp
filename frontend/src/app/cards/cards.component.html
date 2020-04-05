@@ -1,12 +1,13 @@
 <mat-card>
   <mat-card-header>
     <div mat-card-avatar class="avatar"></div>
-    <mat-card-title>{{title}}</mat-card-title>
-    <mat-card-subtitle>{{price}}</mat-card-subtitle>
+    <mat-card-title>{{payload.title}}</mat-card-title>
+    <mat-card-subtitle>${{payload.price}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="{{image}}">
+  <img mat-card-image src="{{payload.image}}">
   <mat-card-actions>
     <button mat-button>LIKE</button>
     <button mat-button>SHARE</button>
+    <button mat-button (click)="purchase(payload.seller)">PURCHASE</button>
   </mat-card-actions>
 </mat-card>
