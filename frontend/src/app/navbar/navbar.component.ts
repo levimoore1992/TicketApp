@@ -24,7 +24,6 @@ export class NavbarComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
       this.isAuthenticated = this.authService.isAuthenticated();
-      console.log(this.isAuthenticated);
 
   }
   ngOnChanges() {
@@ -38,18 +37,14 @@ export class NavbarComponent implements OnInit, OnChanges {
     this.authService.logout();
   }
 
-public onSelect({ item }): void {
-  if (!item.items) {
-      this.router.navigate([ item.path ]);
-  }
-}
 
   goToEvents() {
-    this.router.navigate(['events']);
+    console.log('hree')
+    this.router.navigate(['/events']);
   }
 
   goToListings() {
-        this.router.navigate(['listings']);
+        this.router.navigate(['/listings']);
 
   }
 }

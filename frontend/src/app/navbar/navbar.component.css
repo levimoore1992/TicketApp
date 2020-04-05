@@ -4,7 +4,8 @@ mat-toolbar-row{
   justify-content: space-between;
 }
 a{
-  color: aliceblue;
+  color: black;
+  text-decoration: none;
 }
 
 .nav-links{

@@ -4,17 +4,13 @@
 
     <div class="nav-links">
     <a *ngIf="!isAuthenticated" [routerLink]="'login'">Login</a>
-          <kendo-menu *ngIf="isAuthenticated">
-               <kendo-menu-item text="More">
-                   <kendo-menu-item text="Events" (click)="goToEvents()">
-                   </kendo-menu-item>
-                   <kendo-menu-item text="Listings" (click)="goToListings()">
-                   </kendo-menu-item>
-                <kendo-menu-item text="Logout" (click)="logout()">
-               </kendo-menu-item>
-               </kendo-menu-item>
+    <button *ngIf="isAuthenticated" mat-button [matMenuTriggerFor]="menu">More</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="events">Events</button>
+      <button mat-menu-item routerLink="listings">Listings</button>
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
 
-          </kendo-menu>
     </div>
         <a [routerLink]="''"> Ticket Website</a>
 
