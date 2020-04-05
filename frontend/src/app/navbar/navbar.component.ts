@@ -37,14 +37,4 @@ export class NavbarComponent implements OnInit, OnChanges {
     this.authService.logout();
   }
 
-
-  goToEvents() {
-    console.log('hree')
-    this.router.navigate(['/events']);
-  }
-
-  goToListings() {
-        this.router.navigate(['/listings']);
-
-  }
 }

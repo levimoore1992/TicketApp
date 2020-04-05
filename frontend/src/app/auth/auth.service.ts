@@ -10,7 +10,7 @@ import {tap} from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
 
   loginUser(body) {
@@ -26,6 +26,8 @@ export class AuthService {
 
   logout() {
       localStorage.clear();
+      location.reload();
+      this.router.navigate(['']);
       // this.http.post('http://127.0.0.1:80/api/auth/logout', null);
   }
 

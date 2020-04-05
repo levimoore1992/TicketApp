@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     // @ts-ignore
     localStorage.setItem('token', res.token);
     this.router.navigate(['/']);
+    location.reload();
   });
   }
 }
