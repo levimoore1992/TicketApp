@@ -10,4 +10,4 @@ class Listing(models.Model):
     price = models.IntegerField()
 
     def __str__(self):
-        return f'{self.seller} for {self.price}'
+        return f'{self.seller}'

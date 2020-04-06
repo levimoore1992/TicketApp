@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {TokenInterceptor} from './auth/auth.interceptor';
 import { MenuModule } from '@progress/kendo-angular-menu';
 import {MatMenuModule} from '@angular/material/menu';
+import { PostListingComponent } from './post-listing/post-listing.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MatMenuModule} from '@angular/material/menu';
     LoginComponent,
     CarouselComponent,
     CardsComponent,
+    PostListingComponent,
 
   ],
   imports: [

@@ -6,6 +6,7 @@ import {LoginComponent} from './auth/login/login.component';
 import {ListingsComponent} from './listings/listings.component';
 import {EventsComponent} from './events/events.component';
 import {AuthGuardService} from './auth/auth-guard.service';
+import {PostListingComponent} from './post-listing/post-listing.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'listings', component: ListingsComponent, canActivate: [AuthGuardService]},
   {path: 'events', component: EventsComponent, canActivate: [AuthGuardService]},
+  {path: 'post', component: PostListingComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: ''}
 
 ];
