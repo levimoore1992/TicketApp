@@ -50,12 +50,13 @@ export class PostListingComponent implements OnInit {
           const payload = {
     event: this.eventId,
     price: this.postForm.get('price').value,
+                  // @ts-ignore
     seller: res.id
     };
           this.postService.createPost(payload).subscribe(response => {
       console.log('post created');
       },
-    error => {console.log(error);}
+    error => {console.log(error); }
 
     );
 
