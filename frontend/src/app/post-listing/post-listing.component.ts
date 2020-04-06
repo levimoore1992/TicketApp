@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostListingService} from './post-listing.service';
+import {AuthService} from '../auth/auth.service';
 
 @Component({
   selector: 'app-post-listing',
@@ -14,7 +15,7 @@ export class PostListingComponent implements OnInit {
   allData;
   private eventId: any;
 
-  constructor(private fb: FormBuilder, private postService: PostListingService) {
+  constructor(private fb: FormBuilder, private postService: PostListingService, private authService: AuthService) {
           this.postService.getEvents().subscribe(res => {
       // @ts-ignore
         this.source = res.map(item => item.name);
@@ -36,21 +37,34 @@ export class PostListingComponent implements OnInit {
 
   submitForm() {
 
-    const thisEvent = this.postForm.get('event').value;
-    for (const event of this.allData) {
+    this.authService.getUser().subscribe(res => {
+
+
+          const thisEvent = this.postForm.get('event').value;
+          for (const event of this.allData) {
       if (event.name === thisEvent) {
         this.eventId = event.id;
         break;
       }
     }
-    const payload = {
+          const payload = {
     event: this.eventId,
-    price: this.postForm.get('price').value
+    price: this.postForm.get('price').value,
+    seller: res.id
     };
-    this.postService.createPost(payload).subscribe(res => {
-      console.log(res);
-      }
+          this.postService.createPost(payload).subscribe(response => {
+      console.log('post created');
+      },
+    error => {console.log(error);}
+
     );
+
+
+
+
+    });
+
+
   }
 
 }

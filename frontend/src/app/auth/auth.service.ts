@@ -34,4 +34,14 @@ export class AuthService {
   getToken() {
     return JSON.stringify(localStorage.getItem('token'));
   }
+
+  getUser() {
+    const httpOptions = {
+    headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': `Token ${localStorage.getItem('token')}`
+  })
+};
+    return this.http.get('http://127.0.0.1:80/api/auth/user', httpOptions);
+  }
 }
