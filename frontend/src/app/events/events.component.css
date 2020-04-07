@@ -1,0 +1,19 @@
+.main{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+.main > mat-card{
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+mat-card{
+  max-width:300px;
+}
+.avatar {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

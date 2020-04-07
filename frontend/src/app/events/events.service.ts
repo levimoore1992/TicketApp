@@ -10,6 +10,6 @@ export class EventsService {
 
 
   getEvents() {
-     return this.http.get('http://127.0.0.1:80/api/events');
+     return this.http.get('http://127.0.0.1:80/api/events/');
   }
 }
