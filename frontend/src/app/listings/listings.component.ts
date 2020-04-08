@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ListingsService} from './listings.service';
 
 @Component({
   selector: 'app-listings',
@@ -6,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listings.component.css']
 })
 export class ListingsComponent implements OnInit {
-  cards = [{festival: 'edc', price: 500, image: 'https://festivalfire.com/wp-content/uploads/Beloved-2018-Melissa-Robin.jpg', seller: 'dev@localhost'}];
+  cards;
 
-  constructor() { }
+  constructor(private service: ListingsService) { }
 
   ngOnInit(): void {
+    this.service.getListings().subscribe(res => {
+      console.log(res);
+      this.cards = res;
+    });
+
   }
 
 }
