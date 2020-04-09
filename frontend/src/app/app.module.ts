@@ -26,7 +26,6 @@ import { PostListingComponent } from './post-listing/post-listing.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
