@@ -10,6 +10,5 @@ from rest_framework.response import Response
 class UserListings(APIView):
     def get(self, request):
         listings = [listing for listing in Listing.objects.filter(seller=self.request.user).values()]
-        print(listings)
-        response = {"listings": listings}
+        response = listings
         return Response(response)

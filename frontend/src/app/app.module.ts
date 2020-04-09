@@ -23,6 +23,8 @@ import {TokenInterceptor} from './auth/auth.interceptor';
 import { MenuModule } from '@progress/kendo-angular-menu';
 import {MatMenuModule} from '@angular/material/menu';
 import { PostListingComponent } from './post-listing/post-listing.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 
 
 @NgModule({
@@ -52,7 +54,8 @@ import { PostListingComponent } from './post-listing/post-listing.component';
     MatFormFieldModule,
     MatInputModule,
     MenuModule,
-    MatMenuModule
+    MatMenuModule,
+    GridModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
