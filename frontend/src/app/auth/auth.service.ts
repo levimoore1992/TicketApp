@@ -44,4 +44,13 @@ export class AuthService {
 };
     return this.http.get('http://127.0.0.1:80/api/auth/user', httpOptions);
   }
+
+  returnHttpOptions() {
+    return {
+    headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': `Token ${localStorage.getItem('token')}`
+  })
+};
+  }
 }

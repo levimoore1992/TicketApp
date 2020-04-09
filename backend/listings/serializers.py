@@ -8,4 +8,4 @@ class ListingSerializer(serializers.ModelSerializer):
     # seller = serializers.StringRelatedField()
     class Meta:
         model = Listing
-        fields = '__all__'
+        fields = ('event', 'seller', 'price')

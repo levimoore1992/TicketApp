@@ -11,7 +11,6 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent } from './carousel/carousel.component';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { CardsComponent } from './cards/cards.component';
@@ -35,7 +34,6 @@ import { PostListingComponent } from './post-listing/post-listing.component';
     NavbarComponent,
     SignupComponent,
     LoginComponent,
-    CarouselComponent,
     CardsComponent,
     PostListingComponent,
 
