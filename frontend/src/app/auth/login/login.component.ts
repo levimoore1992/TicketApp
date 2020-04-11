@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   form: FormGroup;
   public loginInvalid: boolean;
-  private returnUrl: string;
+  // private returnUrl: string;
 
   constructor(
     private fb: FormBuilder,
@@ -19,9 +19,12 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService
   ) {
+    if (this.authService.isAuthenticated()) {
+      router.navigate(['home']);
+    }
   }
   ngOnInit(): void {
-    this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
+    // this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
 
     this.form = this.fb.group({
       username: ['', Validators.required],
@@ -37,7 +40,7 @@ export class LoginComponent implements OnInit {
   this.authService.loginUser(body).subscribe(res => {
     // @ts-ignore
     localStorage.setItem('token', res.token);
-    this.router.navigate(['/']);
+    this.router.navigate(['home']);
     location.reload();
   });
   }

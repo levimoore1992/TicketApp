@@ -8,14 +8,13 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-public columns: any[] = [{field: 'event_id', title: 'event'}, {field: 'price', title: 'price'}];
+public columns: any[] = [{field: 'event_id', title: 'Event'}, {field: 'price', title: 'Price'}];
 listingData;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
     const httpOptions = this.authService.returnHttpOptions();
     this.http.get('http://localhost:80/api/listings/user-listings', httpOptions).subscribe(res => {
-      console.log(res);
       this.listingData = res;
     });
 

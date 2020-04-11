@@ -19,7 +19,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {TokenInterceptor} from './auth/auth.interceptor';
 import { MenuModule } from '@progress/kendo-angular-menu';
 import {MatMenuModule} from '@angular/material/menu';
 import { PostListingComponent } from './post-listing/post-listing.component';
@@ -56,11 +55,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
     MatMenuModule,
     GridModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

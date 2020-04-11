@@ -10,7 +10,7 @@ import {PostListingComponent} from './post-listing/post-listing.component';
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'listings', component: ListingsComponent, canActivate: [AuthGuardService]},

@@ -1,7 +1,9 @@
+
+
 .main{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   margin-top: 50px;
+}
+
+kendo-grid{
+  width: 300px;
 }
