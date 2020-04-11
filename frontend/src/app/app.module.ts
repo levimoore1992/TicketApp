@@ -22,7 +22,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MenuModule } from '@progress/kendo-angular-menu';
 import {MatMenuModule} from '@angular/material/menu';
 import { PostListingComponent } from './post-listing/post-listing.component';
-import { GridModule } from '@progress/kendo-angular-grid';
+import {ExcelModule, GridModule} from '@progress/kendo-angular-grid';
 
 
 @NgModule({
@@ -53,7 +53,8 @@ import { GridModule } from '@progress/kendo-angular-grid';
     MatInputModule,
     MenuModule,
     MatMenuModule,
-    GridModule
+    GridModule,
+    ExcelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
