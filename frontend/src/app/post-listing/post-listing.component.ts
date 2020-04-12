@@ -39,16 +39,8 @@ export class PostListingComponent implements OnInit {
 
     this.authService.getUser().subscribe(res => {
 
-
-          const thisEvent = this.postForm.get('event').value;
-          for (const event of this.allData) {
-      if (event.name === thisEvent) {
-        this.eventId = event.id;
-        break;
-      }
-    }
           const payload = {
-    event: this.eventId,
+    event: this.postForm.get('event').value,
     price: this.postForm.get('price').value,
                   // @ts-ignore
     seller: res.id
