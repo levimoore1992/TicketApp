@@ -8,30 +8,19 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-public columns: any[] = [{field: 'event', title: 'Event'}, {field: 'price', title: 'Price'}];
+public columns: any[] = [{field: 'event_id', title: 'Event'}, {field: 'price', title: 'Price'}, {field: 'status', title: 'Status'}];
 listingData;
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   ngOnInit(): void {
     const httpOptions = this.authService.returnHttpOptions();
     this.http.get('http://localhost:80/api/listings/user-listings', httpOptions).subscribe(res => {
+    console.log(res)
+    this.listingData = res;
 
-      this.http.get('http://localhost:80/api/events/', httpOptions).subscribe(response => {
-        this.listingData = this.cleanData(res, response);
-      });
     });
 
   }
 
-  private cleanData(userListing, events) {
-    const cleanedArray = [];
-    userListing.map(item => {
-      events.map(i => {
-        if (i.id === item.event_id) {
-          cleanedArray.push({event: i.name, price: item.price});
-        }
-      });
-    });
-    return cleanedArray;
-  }
+
 }
