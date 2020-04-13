@@ -8,7 +8,7 @@ import {loadStripe} from '@stripe/stripe-js';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-  @Input() payload: {title: string, price: number, image: string, seller: string};
+  @Input() payload: {event: string, price: number, avatar: string, seller: string};
 
   stripe;
 

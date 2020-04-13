@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class Listing(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, to_field='name')
-    seller = models.ForeignKey(User, on_delete=models.CASCADE)
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
     price = models.IntegerField()
 
     def __str__(self):

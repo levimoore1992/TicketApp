@@ -38,12 +38,11 @@ export class PostListingComponent implements OnInit {
   submitForm() {
 
     this.authService.getUser().subscribe(res => {
-
           const payload = {
     event: this.postForm.get('event').value,
     price: this.postForm.get('price').value,
                   // @ts-ignore
-    seller: res.id
+    seller: res.username
     };
           this.postService.createPost(payload).subscribe(response => {
       console.log('post created');
