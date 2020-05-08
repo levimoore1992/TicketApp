@@ -4,8 +4,12 @@ from .models import Listing
 
 
 class ListingSerializer(serializers.ModelSerializer):
-    # event = serializers.StringRelatedField()
-    # seller = serializers.StringRelatedField()
+
     class Meta:
         model = Listing
         fields = ('event', 'seller', 'price')
+
+    def validate_ticker(self, value):
+        if not isinstance(value, str):
+            raise serializers.ValidationError("This is not a string")
+        return value

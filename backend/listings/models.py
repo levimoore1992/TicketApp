@@ -8,7 +8,7 @@ class Listing(models.Model):
     STATUS = [
         ('NOT SENT', 'NOT SENT'),
         ('SENT', 'SENT'),
-        ('DELIVERED','DELIVERED')
+        ('DELIVERED', 'DELIVERED')
     ]
     event = models.ForeignKey(Event, on_delete=models.CASCADE, to_field='name')
     seller = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')

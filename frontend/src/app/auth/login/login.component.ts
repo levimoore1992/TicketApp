@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   this.authService.loginUser(body).subscribe(res => {
     // @ts-ignore
     localStorage.setItem('token', res.token);
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
     location.reload();
   });
   }

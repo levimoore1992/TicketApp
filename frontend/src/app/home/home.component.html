@@ -1,7 +1,5 @@
 
 <div class="main">
-
-
   <div class="user-listings">
       <h2>Your listings</h2>
       <kendo-grid [data]="listingData">
@@ -11,6 +9,9 @@
   <kendo-grid-column *ngFor="let col of columns" [field]="col.field" [title]="col.title"></kendo-grid-column>
   <kendo-grid-excel fileName="Listings.xlsx"></kendo-grid-excel>
 </kendo-grid>
+  </div>
+  <div class="user-profile">
+    <img [src]="imageSource" alt="">
   </div>
 
 </div>
