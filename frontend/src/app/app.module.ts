@@ -22,7 +22,8 @@ import {MatInputModule} from '@angular/material/input';
 import { MenuModule } from '@progress/kendo-angular-menu';
 import {MatMenuModule} from '@angular/material/menu';
 import { PostListingComponent } from './post-listing/post-listing.component';
-import {ExcelModule, GridModule} from '@progress/kendo-angular-grid';
+import {ExcelModule, GridModule, SharedModule} from '@progress/kendo-angular-grid';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {ExcelModule, GridModule} from '@progress/kendo-angular-grid';
     LoginComponent,
     CardsComponent,
     PostListingComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -54,7 +56,8 @@ import {ExcelModule, GridModule} from '@progress/kendo-angular-grid';
     MenuModule,
     MatMenuModule,
     GridModule,
-    ExcelModule
+    ExcelModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
