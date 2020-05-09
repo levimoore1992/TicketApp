@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './views/home/home.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {LoginComponent} from './auth/login/login.component';
-import {ListingsComponent} from './listings/listings.component';
-import {EventsComponent} from './events/events.component';
+import {ListingsComponent} from './views/listings/listings.component';
+import {EventsComponent} from './views/events/events.component';
 import {AuthGuardService} from './auth/auth-guard.service';
-import {PostListingComponent} from './post-listing/post-listing.component';
+import {PostListingComponent} from './views/post-listing/post-listing.component';
 
 
 const routes: Routes = [

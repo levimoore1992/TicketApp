@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {AuthService} from '../auth/auth.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +8,10 @@ import {AuthService} from '../auth/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-public columns: any[] = [{field: 'event_id', title: 'Event'}, {field: 'price', title: 'Price'}, {field: 'status', title: 'Status'}];
-listingData;
+  public columns: any[] = [{field: 'event_id', title: 'Event'},
+                          {field: 'price', title: 'Price'},
+                          {field: 'status', title: 'Status'}];
+  listingData;
   imageSource: string;
   constructor(private http: HttpClient, private authService: AuthService) { }
 

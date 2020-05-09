@@ -13,7 +13,6 @@ class StripeView(APIView):
         serializer = PaymentSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         data = serializer.data
-        print(data)
         stripe.api_key = 'sk_test_clyABYueO769i923TFtYhuQJ00JaoyM53N'
         session = stripe.checkout.Session.create(
             payment_method_types=['card'],

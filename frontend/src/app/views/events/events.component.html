@@ -1,0 +1,9 @@
+<div class="main">
+  <app-cards *ngFor="let event of events"
+             [backgroundImage]="event.image"
+             [title] = event.name
+             [subtitles]="[event.description, event.event_date]"
+             [messgeEnabled]="false"
+             [purchaseEnabled]="false"
+  ></app-cards>
+</div>

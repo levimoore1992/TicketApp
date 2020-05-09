@@ -8,6 +8,7 @@ class Event(models.Model):
     description = models.TextField()
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='event_image')
 
     def __str__(self):
         return f'{self.name}'

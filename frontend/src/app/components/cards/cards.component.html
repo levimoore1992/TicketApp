@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <div *ngIf="avatarImage" mat-card-avatar class="avatar" [ngStyle]="{'background':'url(' + avatarImage + ')no-repeat center / cover'}"></div>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-subtitle *ngFor="let subtitle of subtitles">{{subtitle}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{backgroundImage}}">
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button *ngIf="messgeEnabled">MESSAGE</button>
+    <button mat-button *ngIf="purchaseEnabled" (click)="purchase()">PURCHASE</button>
+  </mat-card-actions>
+</mat-card>

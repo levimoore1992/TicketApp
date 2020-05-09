@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PostListingService} from './post-listing.service';
-import {AuthService} from '../auth/auth.service';
+import {AuthService} from '../../auth/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-listing',
@@ -15,7 +16,7 @@ export class PostListingComponent implements OnInit {
   allData;
   private eventId: any;
 
-  constructor(private fb: FormBuilder, private postService: PostListingService, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private postService: PostListingService, private authService: AuthService, private router: Router) {
           this.postService.getEvents().subscribe(res => {
       // @ts-ignore
         this.source = res.map(item => item.name);
@@ -48,15 +49,10 @@ export class PostListingComponent implements OnInit {
       console.log('post created');
       },
     error => {console.log(error); }
-
     );
-
-
-
-
     });
 
-
+    this.router.navigate(['/']);
   }
 
 }

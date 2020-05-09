@@ -13,7 +13,7 @@ export class ListingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getListings().subscribe(res => {
-      console.log(res);
+      console.log(res)
       this.cards = res;
     });
 
