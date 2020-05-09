@@ -8,12 +8,14 @@ import {ListingsService} from './listings.service';
 })
 export class ListingsComponent implements OnInit {
   cards;
+  avatar: string;
 
   constructor(private service: ListingsService) { }
 
   ngOnInit(): void {
     this.service.getListings().subscribe(res => {
       console.log(res)
+
       this.cards = res;
     });
 
