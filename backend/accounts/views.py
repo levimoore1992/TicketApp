@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
@@ -12,6 +13,6 @@ class AccountsView(APIView):
     def get(self, request, *args, **kwargs):
 
         user = self.request.user.id
-        user_profile = UserProfile.objects.filter(pk=user).values()[0]
-        response = {"image_source": user_profile['avatar']}
+        user_profile = get_object_or_404(UserProfile, id=user)
+        response = {"image_source": str(user_profile.avatar)}
         return Response(response)
