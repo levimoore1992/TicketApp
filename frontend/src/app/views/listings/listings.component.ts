@@ -8,7 +8,6 @@ import {ListingsService} from './listings.service';
 })
 export class ListingsComponent implements OnInit {
   cards;
-  avatar: string;
 
   constructor(private service: ListingsService) { }
 

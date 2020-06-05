@@ -1,15 +1,15 @@
 <div class="main">
   <div class="listings">
-  <div *ngFor=" let card of cards">
-    <app-cards
-      [avatarImage]="'http://localhost:80/media/' + card.avatar"
-      [title]="card.event"
-      [subtitles]="[card.seller, card.price]"
-      [messgeEnabled]="true"
-      [purchaseEnabled]="true"
-    ></app-cards>
+    <div *ngFor=" let card of cards">
+      <app-cards
+        [avatarImage]="'http://localhost:80/media/' + card.avatar"
+        [title]="card.event"
+        [subtitles]="[card.seller, card.price]"
+        [messgeEnabled]="true"
+        [purchaseEnabled]="true"
+      ></app-cards>
+    </div>
   </div>
-</div>
 </div>
 
 

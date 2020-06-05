@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EventsService} from './events.service';
 import {Router} from '@angular/router';
-import {AuthService} from '../../auth/auth.service';
+import {AuthService} from '../../../services/auth.service';
 import {HttpClient} from '@angular/common/http';
 
 @Component({

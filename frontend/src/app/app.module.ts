@@ -7,8 +7,7 @@ import { HomeComponent } from './views/home/home.component';
 import { ListingsComponent } from './views/listings/listings.component';
 import { EventsComponent } from './views/events/events.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { SignupComponent } from './auth/signup/signup.component';
-import { LoginComponent } from './auth/login/login.component';
+import {AuthenticationModule} from './authentication/authentication.module';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
@@ -33,8 +32,6 @@ import { ProfileComponent } from './components/profile/profile.component';
     ListingsComponent,
     EventsComponent,
     NavbarComponent,
-    SignupComponent,
-    LoginComponent,
     CardsComponent,
     PostListingComponent,
     ProfileComponent,
@@ -57,7 +54,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     MatMenuModule,
     GridModule,
     ExcelModule,
-    SharedModule
+    SharedModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
