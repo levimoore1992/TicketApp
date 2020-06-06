@@ -1,11 +1,10 @@
 from django.urls import path
 from rest_framework import routers
-from .api import ListingViewSet
-from .views import UserListings
+from .views import UserListings, ListingViewSet
 router = routers.DefaultRouter()
-router.register('api/listings', ListingViewSet, 'listing')
 
 urlpatterns = router.urls
 urlpatterns += [
+    path('api/listings/', ListingViewSet.as_view(), name='listings'),
     path('api/listings/user-listings', UserListings.as_view(), name='user-listings')
 ]

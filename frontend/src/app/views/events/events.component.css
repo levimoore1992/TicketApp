@@ -5,12 +5,8 @@
   flex-wrap: wrap;
 
 }
-.main > mat-card{
-  margin-left: 25px;
-  margin-bottom: 25px;
+.main > * {
+  padding: 10px;
 }
 
-mat-card{
-  max-width:300px;
-}
 

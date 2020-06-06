@@ -15,6 +15,7 @@ export class PostListingComponent implements OnInit {
   data: any;
   allData;
   private eventId: any;
+  formError: string;
 
   constructor(private fb: FormBuilder, private postService: PostListingService, private authService: AuthService, private router: Router) {
           this.postService.getEvents().subscribe(res => {
@@ -27,7 +28,7 @@ export class PostListingComponent implements OnInit {
 
   ngOnInit(): void {
 
-        this.postForm = this.fb.group({
+    this.postForm = this.fb.group({
       event: ['', Validators.required],
       price: ['', Validators.required]
     });
@@ -45,14 +46,16 @@ export class PostListingComponent implements OnInit {
                           // @ts-ignore
             seller: res.username
           };
-          this.postService.createPost(payload).subscribe(response => {
-      console.log('post created');
-      },
-    error => {console.log(error); }
-    );
+          this.postService.createPost(payload).subscribe(_ => {
+          console.log('post created');
+          this.router.navigate(['/']);
+
+        },
+    error => {
+          this.formError = error.message;
+        });
     });
 
-    this.router.navigate(['/']);
   }
 
 }

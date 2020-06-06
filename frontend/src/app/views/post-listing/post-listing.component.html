@@ -1,5 +1,5 @@
 <mat-card>
-  <form [formGroup]="postForm">
+  <form [formGroup]="postForm" (ngSubmit)="submitForm()">
   <h3>Sell Your Ticket</h3>
 
                 <kendo-autocomplete
@@ -17,7 +17,8 @@
   <input matInput type="number" formControlName="price" placeholder="price">
 </mat-form-field>
 
-  <button mat-raised-button color="primary" class="submit-button" (click)="submitForm()">Submit</button>
+  <button mat-raised-button color="primary" class="submit-button" type="submit">Submit</button>
+    <mat-error *ngIf="formError">{{formError}}</mat-error>
 </form>
 </mat-card>
 
