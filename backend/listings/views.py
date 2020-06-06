@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.shortcuts import render
 from rest_framework.generics import get_object_or_404
 from rest_framework.views import APIView
@@ -19,10 +20,10 @@ class ListingViewSet(APIView):
         return Response({'message': 'Post created'})
 
     def get(self, request, *args, **kwargs):
-        listings = list(Listing.objects.all().values())
+
+        listings = list(Listing.objects.filter(~Q(seller=request.user)).values())
 
         return Response(listings)
-
 
 
 class UserListings(APIView):
