@@ -20,9 +20,7 @@ class ListingViewSet(APIView):
         return Response({'message': 'Post created'})
 
     def get(self, request, *args, **kwargs):
-
         listings = list(Listing.objects.filter(~Q(seller=request.user)).values())
-
         return Response(listings)
 
 

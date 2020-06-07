@@ -10,16 +10,16 @@ export class HomeComponent implements OnInit {
   public columns: any[] = [{field: 'event_id', title: 'Event'},
                           {field: 'price', title: 'Price'},
                           {field: 'status', title: 'Status'}];
-  listingData;
+
   public purchaseColumns = [
     {title: 'Event', field: 'event_id'},
     {title: 'Price', field: 'price'},
     {title: 'Status', field: 'status'},
     {title: 'Seller', field: 'seller'},
-
   ]
-  mockData = [
-  ];
+  listingData;
+  purchaseData;
+
   constructor(private listingsService: ListingsService) { }
 
   ngOnInit(): void {
