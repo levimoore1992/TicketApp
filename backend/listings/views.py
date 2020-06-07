@@ -27,9 +27,8 @@ class ListingViewSet(APIView):
 
 
 class UserListings(APIView):
-    def get(self, request):
-        listings = [listing for listing in Listing.objects.filter(seller=self.request.user).values()]
-        response = listings
+    def get(self, request, *args, **kwargs):
+        response = list(Listing.objects.filter(seller=self.request.user).values())
         return Response(response)
 
 
