@@ -7,14 +7,16 @@ from django.contrib.auth.models import User
 
 class Listing(models.Model):
     STATUS = [
+        ('NOT PURCHASED', 'NOT PURCHASED'),
         ('NOT SENT', 'NOT SENT'),
         ('SENT', 'SENT'),
         ('DELIVERED', 'DELIVERED')
     ]
     event = models.ForeignKey(Event, on_delete=models.CASCADE, to_field='name')
-    seller = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username', related_name='seller')
     price = models.IntegerField()
-    status = models.CharField(max_length=10, choices=STATUS, default='NOT SENT')
+    status = models.CharField(max_length=13, choices=STATUS, default='NOT PURCHASED')
+    buyer = models.ForeignKey(User, default=None, null=True, blank=True, on_delete=models.PROTECT, related_name='buyer')
     avatar = models.CharField(max_length=255)
 
     def save(self, force_insert=False, force_update=False, using=None,

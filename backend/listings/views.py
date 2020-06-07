@@ -31,3 +31,12 @@ class UserListings(APIView):
         listings = [listing for listing in Listing.objects.filter(seller=self.request.user).values()]
         response = listings
         return Response(response)
+
+
+class UpdateStatus(APIView):
+
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        Listing.objects.filter(pk=data['id']).update(status='SENT')
+
+        return Response({'status': 'SENT'})
